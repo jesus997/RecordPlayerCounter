@@ -27,12 +27,10 @@ public class Events implements Listener {
 	
 	@EventHandler
 	public void onLogin(LoginEvent event) {
-		
 		int count = plugin.getProxy().getOnlineCount() + 1;
-		
 		if(count > plugin.getConfig().getRecordPlayerCount()) {
-			plugin.getLogger().info("Record number of players has been bypassed. New record is " + count);
 			plugin.getConfig().setRecordPlayerCount(count);
+			plugin.getLogger().info("New record of online players is " + count);
 		}
 	}
 }

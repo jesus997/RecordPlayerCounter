@@ -61,7 +61,8 @@ public class Config {
 
 	public Configuration getRunningConfig() {
 		try {
-			return yaml.load(config);
+			Configuration conf = yaml.load(config);
+			return conf;
 		} catch (IOException e) {
 			plugin.getLogger().log(Level.WARNING, "Cannot load configuration file.", e);
 			e.printStackTrace();
