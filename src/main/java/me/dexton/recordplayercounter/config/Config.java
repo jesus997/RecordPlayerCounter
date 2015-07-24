@@ -47,9 +47,10 @@ public class Config {
 			Configuration conf = yaml.load(config);
 
 			if(conf.get("record-player-count") == null) {
-				conf.set("record-player-count", plugin.getProxy().getOnlineCount());
+				conf.set("record-player-count", 1);
+				recordPlayerCount = 1;
 			} else {
-				recordPlayerCount = (conf.getInt("record-player-count"));
+				recordPlayerCount = conf.getInt("record-player-count");
 			}
 
 			yaml.save(conf, config);
@@ -70,5 +71,11 @@ public class Config {
 	
 	public int getRecordPlayerCount() {
 		return recordPlayerCount;
+	}
+	
+	public void setRecordPlayerCount(int count) {
+		recordPlayerCount = count;
+		getRunningConfig().set("record-player-count", count);
+		saveConfig();
 	}
 }

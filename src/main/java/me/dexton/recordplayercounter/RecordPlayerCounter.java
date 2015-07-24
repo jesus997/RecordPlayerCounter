@@ -11,6 +11,7 @@ public class RecordPlayerCounter extends Plugin {
 	@Override
 	public void onEnable() {
 		getProxy().getPluginManager().registerListener(this, new Events(this));
+		c = new Config(this);
 		c.loadConfig();
 	}
 	

@@ -1,0 +1,4 @@
+main: me.dexton.recordplayercounter.RecordPlayerCounter
+name: ${project.name}
+version: ${project.version}
+author: [Dexton Anderson]
