@@ -75,8 +75,13 @@ public class Config {
 	}
 	
 	public void setRecordPlayerCount(int count) {
-		recordPlayerCount = count;
-		getRunningConfig().set("record-player-count", count);
-		saveConfig();
+		try {
+			Configuration conf = yaml.load(config);
+			conf.set("record-player-count", count);
+			yaml.save(conf, config);
+			recordPlayerCount = count;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
