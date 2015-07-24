@@ -19,7 +19,7 @@ public class Config {
 
 	public Config(RecordPlayerCounter plugin) {
 		this.plugin = plugin;
-		this.config = new File(plugin.getDataFolder(), "config.yml");
+		this.config = new File(plugin.getDataFolder(), "record.yml");
 		this.config.getParentFile().mkdirs();
 		this.yaml = ConfigurationProvider.getProvider(YamlConfiguration.class);
 	}
